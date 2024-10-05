@@ -1,0 +1,5 @@
+USE `14_football_scout`;
+--
+SELECT `first_name`, `age`, `salary`
+FROM `players`
+ORDER BY `salary` DESC;
