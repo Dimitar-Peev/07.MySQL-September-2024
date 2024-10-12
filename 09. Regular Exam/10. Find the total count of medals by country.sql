@@ -29,24 +29,3 @@ END
 SELECT c.name, udf_total_medals_count_by_country('Bahamas') as count_of_medals
 FROM countries c
 WHERE c.name = 'Bahamas';
-
-
-# DELIMITER ==
-# CREATE FUNCTION udf_total_medals_count_by_country(target_name VARCHAR(40))
-#     RETURNS INT
-#     DETERMINISTIC
-# BEGIN
-#     DECLARE total_country_medals INT;
-#     SET total_country_medals := (SELECT COUNT(dam.medal_id)
-#                                  FROM disciplines_athletes_medals AS dam
-#                                           JOIN athletes AS a ON a.country_id = dam.athlete_id
-#                                           JOIN countries AS c ON c.id = a.country_id
-#                                  WHERE c.name = target_name
-#                                  GROUP BY c.name);
-#     RETURN total_country_medals;
-# END;
-# ==
-#
-# SELECT c.name, udf_total_medals_count_by_country('Bahamas') as count_of_medals
-# FROM countries c
-# WHERE c.name = 'Bahamas';
