@@ -6,7 +6,9 @@ CREATE TABLE `towns`
 (
     `id`   INT AUTO_INCREMENT NOT NULL,
     `name` VARCHAR(255)       NOT NULL,
-    PRIMARY KEY (`id`)
+
+    CONSTRAINT pk_towns
+        PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `addresses`
@@ -14,14 +16,22 @@ CREATE TABLE `addresses`
     `id`           INT AUTO_INCREMENT NOT NULL,
     `address_text` VARCHAR(255)       NOT NULL,
     `town_id`      INT                NOT NULL,
-    PRIMARY KEY (`id`)
+
+    CONSTRAINT pk_addresses
+        PRIMARY KEY (`id`),
+
+    CONSTRAINT fk_addresses_town
+        FOREIGN KEY (`town_id`)
+            REFERENCES `towns` (`id`)
 );
 
 CREATE TABLE `departments`
 (
     `id`   INT AUTO_INCREMENT NOT NULL,
     `name` VARCHAR(255)       NOT NULL,
-    PRIMARY KEY (`id`)
+
+    CONSTRAINT pk_departments
+        PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `employees`
@@ -33,9 +43,19 @@ CREATE TABLE `employees`
     `job_title`     VARCHAR(255)       NOT NULL,
     `department_id` INT                NOT NULL,
     `hire_date`     DATE,
-    `salary`        DECIMAL(10,2),
+    `salary`        DECIMAL(10, 2),
     `address_id`    INT,
-    PRIMARY KEY (`id`)
+
+    CONSTRAINT pk_employees
+        PRIMARY KEY (`id`),
+
+    CONSTRAINT fk_employees_departments
+        FOREIGN KEY (`department_id`)
+            REFERENCES `departments` (`id`),
+
+    CONSTRAINT fk_employees_addresses
+        FOREIGN KEY (`address_id`)
+            REFERENCES `addresses` (`id`)
 );
 --
 INSERT INTO `towns` (`name`)
