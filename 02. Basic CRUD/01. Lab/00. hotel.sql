@@ -24,7 +24,8 @@ CREATE TABLE `employees`
     `department_id` INT         NOT NULL,
     `salary`        DOUBLE      NOT NULL,
     PRIMARY KEY (`id`),
-    CONSTRAINT `fk_department_id`
+
+    CONSTRAINT fk_employees_departments
         FOREIGN KEY (`department_id`)
             REFERENCES `departments` (`id`)
 );
@@ -58,9 +59,10 @@ CREATE TABLE `clients`
     `last_name`  VARCHAR(50),
     `room_id`    INT NOT NULL,
     PRIMARY KEY (`id`),
+
     CONSTRAINT fk_clients_rooms
         FOREIGN KEY (`room_id`)
-            REFERENCES rooms (`id`)
+            REFERENCES `rooms` (`id`)
 );
 
 INSERT INTO `clients`(`first_name`, `last_name`, `room_id`)
