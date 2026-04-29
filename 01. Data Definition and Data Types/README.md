@@ -1,4 +1,4 @@
-# 📘 Database Introduction, Data Definition & Datatypes
+# 📘 Database Introduction, Data Definition & Data Types
 
 ## 📑 Table of Contents
 
