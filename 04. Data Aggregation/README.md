@@ -2,7 +2,7 @@
 
 ## 📑 Table of Contents
 
-* [1. Grouping (GROUP BY)](#1-grouping-group-by)
+* [1. Grouping (GROUP BY)](#1-grouping-with-group-by)
 * [2. Aggregate Functions](#2-aggregate-functions)
 
     * [2.1 COUNT](#21-count)
@@ -16,7 +16,8 @@
 
 ---
 
-## 1. Grouping (GROUP BY) - Works only with SELECT
+## 1. Grouping with GROUP BY
+- Works only with SELECT
 
 Grouping allows you to split data into groups based on a column.
 
