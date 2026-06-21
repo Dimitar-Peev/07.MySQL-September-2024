@@ -1,4 +1,4 @@
-USE geography;
+USE `geography`;
 --
 SELECT c.`continent_code`, c.`currency_code`, COUNT(*) AS 'currency_usage'
 FROM `countries` AS c
@@ -10,4 +10,4 @@ HAVING `currency_usage` > 1
                            GROUP BY c2.`currency_code`
                            ORDER BY `most_used_currency` DESC
                            LIMIT 1)
-ORDER BY c.`continent_code`, c.`continent_code`;
+ORDER BY c.`continent_code`, c.`currency_code`;
