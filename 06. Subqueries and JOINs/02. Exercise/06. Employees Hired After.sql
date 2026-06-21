@@ -1,6 +1,9 @@
 USE `soft_uni`;
 --
-SELECT e.`first_name`, e.`last_name`, e.`hire_date`, d.`name` AS 'dept_name'
+SELECT e.`first_name`,
+       e.`last_name`,
+       DATE_FORMAT(e.`hire_date`, '%Y-%m-%d %H:%i:%s') AS 'hire_date',
+       d.`name`                                        AS 'dept_name'
 FROM `employees` AS e
          INNER JOIN `departments` AS d
                     ON e.`department_id` = d.`department_id`
