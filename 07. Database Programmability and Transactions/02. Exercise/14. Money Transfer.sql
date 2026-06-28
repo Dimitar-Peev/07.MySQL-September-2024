@@ -26,7 +26,7 @@ BEGIN
 END
 --
 ~
-CALL usp_transfer_money(1, 1, 10);
+CALL usp_transfer_money(1, 2, 10);
 
 SELECT `id` AS 'account_id', `account_holder_id`, `balance`
 FROM `accounts`
