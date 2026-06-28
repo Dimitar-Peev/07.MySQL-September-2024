@@ -22,6 +22,6 @@ END
 ~
 CALL usp_withdraw_money(1, 10);
 
-SELECT `balance`
+SELECT `id` AS 'account_id', `account_holder_id`, `balance`
 FROM `accounts`
 WHERE `id` = 1;
