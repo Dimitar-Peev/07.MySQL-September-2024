@@ -13,3 +13,14 @@ BEGIN
 END $$
 
 CALL udp_increase_salaries_by_country('Germany');
+
+-- Check the result
+SELECT w.first_name,
+       w.last_name,
+       ROUND(w.salary / 1.05, 2) AS 'salary before',
+       ROUND(w.salary, 2)        AS 'salary after'
+FROM workers w
+         JOIN preserves p ON w.preserve_id = p.id
+         JOIN countries_preserves cp ON p.id = cp.preserve_id
+         JOIN countries c ON cp.country_id = c.id
+WHERE c.name = 'Germany';
