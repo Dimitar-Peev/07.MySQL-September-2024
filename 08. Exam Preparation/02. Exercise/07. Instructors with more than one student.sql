@@ -13,6 +13,6 @@ FROM instructors i
               ON i.id = `is`.instructor_id
          JOIN instructors_driving_schools ids
               ON i.id = ids.instructor_id
-GROUP BY i.id
+GROUP BY i.id, i.first_name
 HAVING students_count > 1
 ORDER BY students_count DESC, i.first_name;
